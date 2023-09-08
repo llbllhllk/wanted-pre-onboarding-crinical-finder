@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ChangeEvent, KeyboardEvent, forwardRef } from 'react';
+import React from "react";
+import styled from "styled-components";
+import { ChangeEvent, KeyboardEvent, forwardRef } from "react";
 
 interface Props {
   name: string;
@@ -13,7 +13,10 @@ interface Props {
 }
 
 const SearchBar = forwardRef<HTMLInputElement, Props>(
-  ({ name, value, onChange, placeholder, onFocus, onKeyDown, ...props }, ref) => {
+  (
+    { name, value, onChange, placeholder, onFocus, onKeyDown, ...props },
+    ref,
+  ) => {
     return (
       <SearchBarContainer
         type="text"

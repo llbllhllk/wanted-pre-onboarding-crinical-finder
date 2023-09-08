@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import React from 'react';
+import { useEffect } from "react";
+import React from "react";
 
 function useClickOutside(
   ref: React.MutableRefObject<HTMLInputElement | null>,
@@ -12,10 +12,10 @@ function useClickOutside(
       }
     }
 
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, [ref, callback]);
 }

@@ -1,8 +1,8 @@
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
-import CacheApiServer from '../utils/cacheStorage';
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import CacheApiServer from "../utils/cacheStorage";
 
 const BASE_URL =
-  process.env.NODE_ENV === 'production'
+  process.env.NODE_ENV === "production"
     ? process.env.REACT_APP_PROD_API_URL
     : process.env.REACT_APP_DEV_API_URL;
 
@@ -11,7 +11,7 @@ class Http {
 
   constructor(
     baseURL: string,
-    private cache = new CacheApiServer('sick'),
+    private cache = new CacheApiServer("sick"),
   ) {
     this.axiosInstance = axios.create({ baseURL });
   }
@@ -21,7 +21,8 @@ class Http {
 
     try {
       const cachedResponse = await this.cache.get(cacheKey);
-      if (config.method === 'GET' && cachedResponse) return cachedResponse.json();
+      if (config.method === "GET" && cachedResponse)
+        return cachedResponse.json();
 
       const axiosConfig: AxiosRequestConfig = {
         method: config.method,
@@ -30,7 +31,7 @@ class Http {
         data: config.body,
       };
       const res: AxiosResponse = await this.axiosInstance(axiosConfig);
-      if (config.method === 'GET') {
+      if (config.method === "GET") {
         this.cache.set(cacheKey, res.data);
       }
       return res.data;
@@ -41,15 +42,17 @@ class Http {
   }
 
   private generateCacheKey(config: RequestConfig): string {
-    return `${config.method}_${config.url}_${JSON.stringify(config.query || {})}`;
+    return `${config.method}_${config.url}_${JSON.stringify(
+      config.query || {},
+    )}`;
   }
 }
 
-const http = new Http(BASE_URL || '');
+const http = new Http(BASE_URL || "");
 
 export default http;
 
-type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
+type HttpMethod = "GET" | "POST" | "PUT" | "DELETE";
 
 type RequestConfig = {
   method: HttpMethod;

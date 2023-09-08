@@ -50,7 +50,7 @@ src
  ┣ 📂 routes      라우팅
  ┃ ┗ 📄 Router.tsx
  ┣ 📂 types       타입 정의
- ┣ 📂 utils       공통 함수     
+ ┣ 📂 utils       공통 함수
  ┗ ┗ 📄 useKeyDown.tsx
 
 ```
@@ -66,37 +66,42 @@ src
 
 ## 🎉 Preview
 
-![project](https://github.com/llbllhllk/cnu-sw-academy-project-frontend/assets/33623123/ab3ec95c-d6c2-452b-b6e4-9792ebd93056) 
+![project](https://github.com/llbllhllk/cnu-sw-academy-project-frontend/assets/33623123/ab3ec95c-d6c2-452b-b6e4-9792ebd93056)
 
 ## 📝 구현 내용
 
 ### ✅ Assignment 1
+
 > - 질환명 검색시 API 호출 통해서 검색어 추천 기능 구현
 >   - 검색어가 없을 시 “검색어 없음” 표출
 
 ### api 호출
+
 - axios class를 사용해 정의.
 - 해당 class의 매개변수로 storage를 받아 api 호출을 할때 해당 storage에 저장.
 
 ### 출력
+
 - 사용자 입력 시 api 호출 후 map으로 순회하여 Suggestion들을 출력.
 
 <br>
 
 ### ✅ Assignment 2
+
 > - API 호출별로 로컬 캐싱 구현
->    - 캐싱 기능을 제공하는 라이브러리 사용 금지(React-Query 등)
->    - 캐싱을 어떻게 기술했는지에 대한 내용 README에 기술
->    - expire time을 구현할 경우 가산점 (extra)
+>   - 캐싱 기능을 제공하는 라이브러리 사용 금지(React-Query 등)
+>   - 캐싱을 어떻게 기술했는지에 대한 내용 README에 기술
+>   - expire time을 구현할 경우 가산점 (extra)
 
 ### cacheStorage로 저장
+
 - api 호출 전 get을 통해 캐시가 존재하는지 확인.
 - 존재하면 캐시를 리턴하고 없을 경우 api 호출 후 set을 통해 캐시에 저장.
 
 ### expire time 구현
+
 - header에 FETCH_DATE를 저장.
 - 캐시에 접근 시 `현재시간 - FETCH_DATE > EXPIRE_TIME`으로 캐시 만료 여부를 판단하고 만료되었으면 삭제.
-
 
 <br />
 
@@ -107,6 +112,7 @@ src
 >   - API를 호출할 때 마다 console.info("calling api") 출력을 통해 콘솔창에서 API 호출 횟수 확인이 가능하도록 설정
 
 ### debounce 전략
+
 - API 요청에 500ms의 debounce를 적용.
 - 사용자의 입력마다 API 호출 하는것이 아닌 사용자의 입력이 해당 시간동안 없을 때만 호출하게 하여 횟수를 줄임.
 - default로 10개의 추천 검색어를 출력하도록 지정.
@@ -114,8 +120,9 @@ src
 <br />
 
 ### ✅ Assignment 4
+
 > - 키보드만으로 추천 검색어들로 이동 가능하도록 구현
->    - 사용법 README에 기술
+>   - 사용법 README에 기술
 
 - 키보드 이벤트와 관련한 useKeyDown 커스텀 훅으로 분리.
 - input의 onKeyDown 핸들러와 연결후 인덱스 상태 확인.

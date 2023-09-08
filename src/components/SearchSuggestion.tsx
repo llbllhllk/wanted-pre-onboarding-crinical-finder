@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Sick } from 'types';
+import styled from "styled-components";
+import { Sick } from "types";
 
 interface Props {
   sicks: Sick[];
@@ -64,7 +64,7 @@ const Suggestion = styled.li<{ isActive: boolean }>`
   margin-bottom: 12px;
   cursor: pointer;
 
-  background-color: ${props => (props.isActive ? '#7fffffd2' : '#fff')};
+  background-color: ${(props) => (props.isActive ? "#7fffffd2" : "#fff")};
 
   &:last-of-type {
     margin-bottom: 0;

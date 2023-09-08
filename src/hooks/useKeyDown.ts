@@ -1,22 +1,24 @@
-import React, { useCallback, useState } from 'react';
-import { Sick } from '../types/index';
+import React, { useCallback, useState } from "react";
+import { Sick } from "../types/index";
 
-const ARROW_DOWN = 'ArrowDown';
-const ARROW_UP = 'ArrowUp';
-const ESCAPE = 'Escape';
+const ARROW_DOWN = "ArrowDown";
+const ARROW_UP = "ArrowUp";
+const ESCAPE = "Escape";
 
-const useKeyDown = (data: Sick[]): [number, (e: React.KeyboardEvent<HTMLInputElement>) => void] => {
+const useKeyDown = (
+  data: Sick[],
+): [number, (e: React.KeyboardEvent<HTMLInputElement>) => void] => {
   const [activeIdx, setActiveIdx] = useState(-1);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       switch (e.key) {
         case ARROW_DOWN:
-          setActiveIdx(idx => idx + 1);
+          setActiveIdx((idx) => idx + 1);
           if (activeIdx === data.length - 1) setActiveIdx(0);
           break;
         case ARROW_UP:
-          setActiveIdx(idx => idx - 1);
+          setActiveIdx((idx) => idx - 1);
           if (activeIdx <= 0) setActiveIdx(data.length - 1);
           break;
         case ESCAPE:
