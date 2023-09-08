@@ -68,6 +68,8 @@ src
 
 ![project](https://github.com/llbllhllk/cnu-sw-academy-project-frontend/assets/33623123/ab3ec95c-d6c2-452b-b6e4-9792ebd93056)
 
+<br />
+
 ## 📝 구현 내용
 
 ### ✅ Assignment 1
