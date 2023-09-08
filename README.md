@@ -14,7 +14,7 @@
 
 ### 실행 방법
 
-- [배포링크]()
+- [배포링크](https://master--crinical-finder.netlify.app/)
 
 - 링크가 실행되지 않는 경우 아래 명령어를 순차적으로 입력하여 실행해주세요.
 
@@ -136,4 +136,4 @@ src
 
 ### 배포
 
-- 해당 프로젝트는 netlify를 통해 배포되었습니다. [배포링크]()
+- 해당 프로젝트는 netlify를 통해 배포되었습니다. [배포링크](https://master--crinical-finder.netlify.app/)
